@@ -1,0 +1,407 @@
+/* === GENERAL & LOGIN PAGE STYLES === */
+.homePageWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    height: 100vh;
+}
+
+/* Updated for professional layout */
+.contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem; /* Consistent spacing */
+    width: 90%;
+    max-width: 1200px; /* Max-width for large screens */
+    margin: 0 auto;
+}
+
+/* Updated for better alignment */
+/* === FIX FOR BALANCE & ALIGNMENT === */
+
+/* 1. GIF ko aapsi container ke beech me la rahe hain */
+.leftIllustration {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Sabse important change: 'flex-end' se 'center' kiya */
+    align-items: center;
+}
+
+/* 2. GIF ka size thoda chhota kar rahe hain for better balance */
+.illustrationGif {
+       width: 60%;
+    max-width: 480px;
+    margin-left: -105px;
+}
+
+/* 3. Logo ko form ke andar theek se center kar rahe hain */
+.homePageLogo {
+    height: 80px;
+    width: auto;
+    margin-bottom: 1.5rem; /* Logo ke neeche thoda aur space (24px) */
+    align-self: center; /* Ye isse form me horizontally center karega */
+    
+    /* Ye sunischit karein ki purane margin properties na ho */
+    margin-left: 0;
+    margin-top: 0;
+}
+
+/* Form ki padding thodi adjust kar rahe hain */
+.formWrapper {
+    flex: 1;
+    max-width: 450px;
+background: #1e293b;  /* slate-800 */
+
+    padding: 2rem 2.5rem; /* Vertical padding thodi kam, horizontal utni hi */
+    border-radius: 60px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+/* Updated for consistent spacing between inputs */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem; /* Replaces individual margins */
+}
+
+/* Updated to center the logo properly */
+.homePageLogo {
+    height: 162px;
+    width: auto;
+    margin-bottom: -16px;
+    margin-left: 95px;
+    margin-top: -36px;
+}
+
+
+/* Updated for cleaner look */
+.inputBox {
+    padding: 14px 16px;
+    border-radius: 20px;
+    outline: none;
+    border: 1px solid transparent;
+    background: #1e1e1e; /* Darker background */
+    font-size: 16px;
+    color: #fff;
+    transition: border-color 0.2s ease-in-out;
+    /* margin-bottom is no longer needed because of gap in .inputGroup */
+}
+
+.inputBox::placeholder {
+    color: #9ca3af;
+    font-weight: normal;
+}
+
+.inputBox:focus {
+    border-color: #4aed88;
+}
+
+/* Updated for better readability and style */
+.joinBtn {
+    background: #22c55e;
+    color: #ffffff; /* White text is more readable */
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none; /* Removed default border */
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.joinBtn:hover {
+    background-color: #16a34a;
+}
+
+.createInfo {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.createNewBtn {
+    color: #4aed88;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.createNewBtn:hover {
+    color: #22c55e;
+}
+
+
+/* === FOOTER === */
+footer {
+    position: fixed;
+    bottom: 0;
+    /* You might want to style it further if it's part of the design */
+}
+
+footer a {
+    color: #4aee88;
+}
+
+
+/* === OTHER PAGE STYLES (Editor Page, etc.) === */
+.mainWrap {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    height: 100vh;
+}
+
+.aside {
+    background: #1c1e29;
+    padding: 16px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.asideInner {
+    flex: 1;
+}
+
+.clientsList {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.userName {
+    margin-top: 10px;
+}
+
+.logo {
+    border-bottom: 1px solid #424242;
+    padding-bottom: 10px;
+}
+
+.logoImage {
+    height: 105px;
+    margin-top: -23px;
+    margin-bottom: -25px;
+    margin-left: -15px;
+}
+
+.leaveBtn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.CodeMirror {
+    min-height: calc(100vh - 20px);
+    font-size: 20px;
+    line-height: 1.6;
+    padding-top: 20px;
+}
+#btncopy {
+  background: #22c55e;
+  color: #ffffff;
+  width: 100%;
+  padding: 14px;
+  font-size: 16.5px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+#btncopy:hover {
+  background-color: #16a34a;
+  transform: scale(1.02);
+}
+
+#btnleave {
+  background: #ffffff;
+  color: #000000;
+  width: 100%;
+  padding: 14px;
+  font-size: 16.5px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid #00000010;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+#btnleave:hover {
+  background-color: #f2f2f2;
+  transform: scale(1.02);
+}
+
+.whiteboardWrap {
+    height: 500px;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.right-navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 65px;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1c1e29, #15161f);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem 0;
+  gap: 1.8rem;
+  z-index: 1000;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.right-navbar button {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #ffffffcc;
+  cursor: pointer;
+  font-size: 1.4rem;
+  padding: 12px;
+  border-radius: 12px;
+  transition: all 0.25s ease-in-out;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.right-navbar button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: scale(1.15);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+}
+
+.user-icon {
+  margin-top: auto;
+  padding-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #ffffffcc;
+  transition: all 0.2s ease;
+}
+
+.user-icon:hover {
+  color: #00e0ff;
+  transform: scale(1.2);
+}
+
+.whiteboard-dialog {
+  background-color: white;
+  border: 2px solid #ccc;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  height: 80%;
+  z-index: 1000;
+}
+
+.whiteboard-close {
+  float: right;
+  background: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* chatbox */
+.chatbox-container {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 200;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.chatbox-header {
+  background-color: #343a40;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.chatbox-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.chat-message {
+  margin-bottom: 8px;
+  padding: 4px 6px;
+  background-color: #e2e3e5;
+  border-radius: 4px;
+}
+
+.chat-message.own {
+  background-color: #d1e7dd;
+  align-self: flex-end;
+}
+
+.chatbox-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chatbox-input input {
+  flex: 1;
+  padding: 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.chatbox-input button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  background-color: #198754;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
