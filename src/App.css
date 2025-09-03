@@ -326,82 +326,337 @@ footer a {
   border-radius: 4px;
 }
 
-/* chatbox */
-.chatbox-container {
+/* Chatbox container */
+.chatbox {
   position: absolute;
-  right: 20px;
   bottom: 20px;
-  width: 300px;
-  height: 400px;
-  background-color: #f8f9fa;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  right: 80px;
+  width: 320px;
+  height: 420px;
+  background: #131f34; /* Matches app theme */
+  color: #fff;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  z-index: 200;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  font-family: 'Segoe UI', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 
+/* Header */
 .chatbox-header {
-  background-color: #343a40;
-  color: white;
-  padding: 10px;
-  font-weight: bold;
+  background: linear-gradient(135deg, #1f2a48, #131f34);
+  padding: 10px 14px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #e0e0e0;
 }
 
-.close-btn {
-  background: none;
+.chatbox-header button {
+  background: transparent;
   border: none;
-  color: white;
-  font-size: 18px;
+  color: #aaa;
+  font-size: 1.1rem;
   cursor: pointer;
+  transition: color 0.2s;
 }
 
+.chatbox-header button:hover {
+  color: #ff5f5f;
+}
+
+/* Messages section */
 .chatbox-messages {
   flex: 1;
-  padding: 10px;
+  padding: 10px 12px;
   overflow-y: auto;
-  font-size: 14px;
+  scrollbar-width: thin;
+  scrollbar-color: #4cafef #131f34;
 }
 
+.chatbox-messages::-webkit-scrollbar {
+  width: 6px;
+}
+.chatbox-messages::-webkit-scrollbar-thumb {
+  background-color: #4cafef;
+  border-radius: 10px;
+}
+
+/* Chat messages */
 .chat-message {
   margin-bottom: 8px;
-  padding: 4px 6px;
-  background-color: #e2e3e5;
-  border-radius: 4px;
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.3;
+  position: relative;
+  word-wrap: break-word;
 }
 
-.chat-message.own {
-  background-color: #d1e7dd;
-  align-self: flex-end;
+/* Self message */
+.chat-message.self {
+  background: #4cafef;
+  color: #fff;
+  margin-left: auto;
+  border-bottom-right-radius: 4px;
+  text-align: left;
 }
 
+/* Other user message */
+.chat-message.other {
+  background: #1f2a48;
+  color: #eaeaea;
+  margin-right: auto;
+  border-bottom-left-radius: 4px;
+}
+
+/* Timestamp */
+.chat-time {
+  font-size: 0.7em;
+  color: #aaa;
+  margin-top: 3px;
+  display: block;
+  text-align: right;
+}
+
+/* Input box */
 .chatbox-input {
   display: flex;
-  padding: 10px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  background: #1a243d;
 }
 
 .chatbox-input input {
   flex: 1;
-  padding: 6px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-right: 6px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: 0.9rem;
+  
+}
+
+.chatbox-input input::placeholder {
+  color: #777;
+  
 }
 
 .chatbox-input button {
-  padding: 6px 12px;
-  font-size: 14px;
+  background: #4cafef;
   border: none;
-  background-color: #198754;
-  color: white;
-  border-radius: 4px;
+  padding: 10px 16px;
   cursor: pointer;
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 12px 0;
+  transition: background 0.2s ease;
+   margin-left: auto;
 }
+
+.chatbox-input button:hover {
+  background: #3b8fd4;
+}
+/* ===== Dropdown Label ===== */
+.dropdown-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #cfd6e6; /* softer professional tone */
+  letter-spacing: 0.3px;
+}
+
+/* ===== Custom Dropdown ===== */
+.custom-dropdown {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  border: 1px solid #2c3344;
+  background: linear-gradient(145deg, #1d2330, #161b25); /* subtle depth */
+  color: #e5eaf5;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.35), 0 2px 6px rgba(0,0,0,0.4);
+  backdrop-filter: blur(6px);
+}
+
+/* Hover */
+.custom-dropdown:hover {
+  border-color: #5daeff;
+  background: linear-gradient(145deg, #202837, #181e29);
+  box-shadow: 0 0 8px rgba(93, 174, 255, 0.3);
+}
+
+/* Focus */
+.custom-dropdown:focus {
+  border-color: #5daeff;
+  box-shadow: 0 0 12px rgba(93, 174, 255, 0.5);
+}
+
+/* Options */
+.custom-dropdown option {
+  background: #1d2330;
+  color: #e5eaf5;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Copy Room Button */
+.copyBtn {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(46, 204, 113, 0.4);
+}
+.copyBtn:hover {
+  background: linear-gradient(135deg, #27ae60, #219150);
+  box-shadow: 0 6px 16px rgba(46, 204, 113, 0.55);
+  transform: translateY(-1px);
+}
+
+/* Leave Button */
+.leaveBtn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+.leaveBtn:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.55);
+  transform: translateY(-1px);
+}
+/* Timer Box (Draggable Dialog) */
+/* Timer Container */
+.timer-box {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 220px;
+  background: #1e2a44;
+  color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+}
+
+/* Timer Header */
+.timer-header {
+  padding: 10px 12px;
+  font-weight: 600;
+  background: #25334f;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move;
+  font-size: 14px;
+}
+
+.timer-header span {
+  font-size: 15px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Timer Body */
+.timer-body {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-body h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #f8f9fa;
+  letter-spacing: 1px;
+}
+
+/* Timer Buttons */
+.timer-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.timer-buttons button {
+  flex: 1;
+  background: #344a73;
+  color: #fff;
+  border: none;
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.timer-buttons button:hover {
+  background: #3e5686;
+  transform: translateY(-1px);
+}
+
+.timer-buttons button:active {
+  transform: translateY(0);
+}
+
+/* Add smooth open/close animation */
+.timer-box {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

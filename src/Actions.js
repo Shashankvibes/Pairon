@@ -1,12 +1,11 @@
 const ACTIONS = {
-    JOIN: 'join',
-    JOINED: 'joined',
-    DISCONNECTED: 'disconnected',
-    CODE_CHANGE: 'code-change',
-    SYNC_CODE: 'sync-code',
-    LEAVE: 'leave',
-    CODE_OUTPUT: 'code-output', 
-    WHITEBOARD_CHANGE: 'WHITEBOARD_CHANGE',
+  JOIN: 'join',
+  JOINED: 'joined',
+  DISCONNECTED: 'disconnected',
+  CODE_CHANGE: 'code-change',
+  SYNC_CODE: 'sync-code',
+  LEAVE: 'leave',
+  CHAT_MESSAGE: 'chat-message',   // 👈 add this
 };
 
 module.exports = ACTIONS;

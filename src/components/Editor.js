@@ -2,6 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import Codemirror from 'codemirror';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
+import 'codemirror/theme/material.css';
+import 'codemirror/theme/oceanic-next.css';
+import 'codemirror/theme/monokai.css';
 
 /* 🔥 Language Modes (Popular) */
 import 'codemirror/mode/javascript/javascript';
@@ -38,16 +41,20 @@ import 'codemirror/addon/dialog/dialog';
 
 import ACTIONS from '../Actions';
 
-const Editor = ({ socketRef, roomId, onCodeChange, language = "javascript" }) => {
+const Editor = ({ socketRef, roomId, onCodeChange, language = "javascript", theme = "dracula" }) => {
     const editorRef = useRef(null);
 
     useEffect(() => {
         async function init() {
+            if (editorRef.current) {
+                editorRef.current.toTextArea();
+            }
+
             editorRef.current = Codemirror.fromTextArea(
                 document.getElementById('realtimeEditor'),
                 {
                     mode: languageMode(language),
-                    theme: 'dracula',
+                    theme: theme,
                     autoCloseTags: true,
                     autoCloseBrackets: true,
                     lineNumbers: true,
@@ -73,14 +80,14 @@ const Editor = ({ socketRef, roomId, onCodeChange, language = "javascript" }) =>
         }
 
         init();
-    }, [language]);
+    }, [language, theme]);
 
     useEffect(() => {
         const socket = socketRef.current;
         if (!socket) return;
 
         socket.on(ACTIONS.CODE_CHANGE, ({ code }) => {
-            if (code !== null) {
+            if (code !== null && code !== editorRef.current.getValue()) {
                 editorRef.current.setValue(code);
             }
         });
