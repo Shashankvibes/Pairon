@@ -3,19 +3,22 @@ import {
   Play,
   LayoutDashboard,
   MessageCircle,
-  Save,
-  UserCircle,
+  Mail,
+  // UserCircle,
   Timer
 } from 'lucide-react';
 import Draggable from 'react-draggable';
 import '../App.css';
 
-const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
+const Navbar = ({ onWhiteboard, onChat }) => {
   const [active, setActive] = useState('');
   const [showTimer, setShowTimer] = useState(false);
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [showMaintenance, setShowMaintenance] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
   const timerRef = useRef(null);
+  const supportRef = useRef(null);
   const intervalRef = useRef(null);
 
   const handleClick = (action, name) => {
@@ -25,8 +28,10 @@ const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
     }
   };
 
-  const toggleTimer = () => {
-    setShowTimer(!showTimer);
+  const toggleTimer = () => setShowTimer(!showTimer);
+
+  const openLinkedIn = () => {
+    setShowSupport(true);
   };
 
   // Start timer
@@ -69,7 +74,7 @@ const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
       <div className="right-navbar">
         <button
           className={`nav-btn ${active === 'run' ? 'active' : ''}`}
-          onClick={() => handleClick(onRun, 'run')}
+          onClick={() => setShowMaintenance(true)}
           title="Run Code"
         >
           <Play size={22} />
@@ -92,11 +97,11 @@ const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
         </button>
 
         <button
-          className={`nav-btn ${active === 'save' ? 'active' : ''}`}
-          onClick={() => handleClick(onSave, 'save')}
-          title="Save"
+          className={`nav-btn ${active === 'support' ? 'active' : ''}`}
+          onClick={openLinkedIn}
+          title="Support"
         >
-          <Save size={22} />
+          <Mail size={22} />
         </button>
 
         <button
@@ -107,9 +112,9 @@ const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
           <Timer size={22} />
         </button>
 
-        <div className="user-icon" title="Profile">
+        {/* <div className="user-icon" title="Profile">
           <UserCircle size={22} />
-        </div>
+        </div> */}
       </div>
 
       {/* Timer Dialog */}
@@ -127,6 +132,40 @@ const Navbar = ({ onRun, onWhiteboard, onChat, onSave }) => {
                 <button onClick={pauseTimer}>Pause</button>
                 <button onClick={resetTimer}>Reset</button>
               </div>
+            </div>
+          </div>
+        </Draggable>
+      )}
+
+      {/* Maintenance Dialog */}
+      {showMaintenance && (
+        <div className="maintenance-dialog">
+          <div className="maintenance-header">
+            <span>Notice</span>
+            <button className="close-btn" onClick={() => setShowMaintenance(false)}>×</button>
+          </div>
+          <div className="maintenance-body">
+            <h3>This feature is under maintenance</h3>
+          </div>
+        </div>
+      )}
+
+      {/* Support Dialog - Same Style as Timer */}
+      {showSupport && (
+        <Draggable nodeRef={supportRef} handle=".support-header">
+          <div className="support-box" ref={supportRef}>
+            <div className="support-header">
+              <span>Support</span>
+              <button className="close-btn" onClick={() => setShowSupport(false)}>×</button>
+            </div>
+            <div className="support-body">
+              <h3>Feel free to reach us</h3>
+              <button
+                className="linkedin-btn"
+                onClick={() => window.open("https://www.linkedin.com/in/shashank-chaturvedi-49ba91308", "_blank")}
+              >
+                Open LinkedIn
+              </button>
             </div>
           </div>
         </Draggable>

@@ -93,7 +93,7 @@ const EditorPage = () => {
     }
   };
 
-  const leaveRoom = () => reactNavigator('/');
+  const leaveRoom = () => reactNavigator('/home');
 
   const handleRun = () => console.log('Run button clicked');
   const handleWhiteboard = () => setShowWhiteboard((prev) => !prev);
